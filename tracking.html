@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tracking - SITTA UT</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Vue.js -->
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <!-- Script aplikasi -->
+    <script src="js/data.js" defer></script>
+    <script src="js/tracking.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <img src="img/logo.png" alt="UT Logo" class="logo">
+        <nav class="header-nav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="stok.html">Stok</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+
+    <main id="app" class="container">
+        <section>
+            <h1>Tracking Pengiriman</h1>
+            <div class="form-row">
+                <input type="text" v-model="noDO" placeholder="Masukkan Nomor DO">
+                <button class="btn" @click="cari">Cari</button>
+            </div>
+            <div v-html="hasil"></div>
+        </section>
+    </main>
+</body>
+</html>

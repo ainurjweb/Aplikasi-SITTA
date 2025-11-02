@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Login - SITTA UT (Vue)</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/login.js" defer></script>
+</head>
+<body>
+  <header>
+    <img src="img/logo.png" alt="UT Logo" class="logo">
+    <nav class="header-nav"><a href="index.html">Login</a><a href="stok.html">Stok</a><a href="tracking.html">Tracking</a></nav>
+  </header>
+  <main id="app" class="container">
+    <section aria-label="Login">
+      <h1>Login Aplikasi SITTA</h1>
+      <form @submit.prevent="doLogin" novalidate>
+        <div class="form-row">
+          <input type="email" v-model="email" placeholder="Email" required>
+          <input type="password" v-model="password" placeholder="Password" required minlength="4">
+          <button class="btn" type="submit">Login</button>
+        </div>
+      </form>
+      <p><a href="#" @click.prevent="open('forgot')">Lupa Password?</a> | <a href="#" @click.prevent="open('register')">Daftar</a></p>
+    </section>
+
+    <!-- modal sederhana -->
+    <div v-if="modal==='forgot'" style="position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;">
+      <div style="background:white;padding:16px;border-radius:8px;width:90%;max-width:420px;">
+        <h3>Lupa Password</h3>
+        <input type="email" placeholder="Masukkan email">
+        <div style="text-align:right;margin-top:8px;"><button class="btn" @click="close()">Kirim</button></div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

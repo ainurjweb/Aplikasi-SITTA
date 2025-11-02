@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stok - SITTA UT</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Vue & Scripts -->
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/stok.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <img src="img/logo.png" alt="UT Logo" class="logo">
+    <nav class="header-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="tracking.html">Tracking</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+
+  <main id="app" class="container">
+    <section>
+      <h1>Data Stok Bahan Ajar</h1>
+
+      <div class="form-row">
+        <input v-model="q" placeholder="Cari nama atau kode...">
+        <button class="btn" @click="tambah">Tambah Data</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Kode Lokasi</th>
+            <th>Kode Barang</th>
+            <th>Nama Barang</th>
+            <th>Jenis</th>
+            <th>Edisi</th>
+            <th>Stok</th>
+            <th>Cover</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in filtered" :key="item.kodeBarang">
+            <td>{{ item.kodeLokasi }}</td>
+            <td>{{ item.kodeBarang }}</td>
+            <td>{{ item.namaBarang }}</td>
+            <td>{{ item.jenisBarang }}</td>
+            <td>{{ item.edisi }}</td>
+            <td>{{ item.stok }}</td>
+            <td>
+              <img :src="item.cover" alt="Cover" style="width: 60px; height: auto;">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
